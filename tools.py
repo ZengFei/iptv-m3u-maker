@@ -37,10 +37,14 @@ class Tools (object) :
             request.add_header(headerType, headerCon)
 
         try :
+            
+            # ssl._create_default_https_context = ssl._create_unverified_context
             ctx = ssl.create_default_context()
             ctx.check_hostname = False
             ctx.verify_mode = ssl.CERT_NONE
-            response = urllib.request.urlopen(request, context = ctx)
+
+            # response = urllib.request.urlopen(request, context = ctx)
+            response = urllib.request.urlopen(url)
             header = response.headers
             body = response.read().decode('utf-8')
             code = response.code

@@ -8,7 +8,8 @@ import re
 import json
 from plugins import base
 from plugins import lista
-from plugins import listb
+# from plugins import listb
+from plugins import listc
 from plugins import dotpy
 
 class Iptv (object):
@@ -28,8 +29,13 @@ class Iptv (object):
         for item in urlList :
             self.addData(item)
 
-        listB = listb.Source()
-        urlList = listB.getSource()
+        # listB = listb.Source()
+        # urlList = listB.getSource()
+        # for item in urlList :
+        #     self.addData(item)
+
+        listC = listc.Source()
+        urlList = listC.getSource()
         for item in urlList :
             self.addData(item)
 
@@ -92,6 +98,7 @@ class Iptv (object):
 
         fmtList = {
             'cctv': [],
+            'satellite': [],
             'local': [],
             'other': [],
             'radio': []
@@ -105,7 +112,7 @@ class Iptv (object):
             if item[4] == 1 :
                 fmtList['cctv'].append(tmp)
             elif item[4] == 2 :
-                fmtList['local'].append(tmp)
+                fmtList['satellite'].append(tmp)
             elif item[4] == 3 :
                 fmtList['local'].append(tmp)
             elif item[4] == 7 :

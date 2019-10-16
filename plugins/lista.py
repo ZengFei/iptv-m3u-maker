@@ -16,10 +16,10 @@ class Source (object) :
 
         url = 'https://github.com/billy21/Tvlist-awesome-m3u-m3u8/blob/master/list.md'
         req = [
-            'user-agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Mobile Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36',
         ]
         res = self.T.getPage(url, req)
-
+        
         if res['code'] == 200 :
             pattern = re.compile(r"<article(.*?)</article>", re.I|re.S)
             tmp = pattern.findall(res['body'])
